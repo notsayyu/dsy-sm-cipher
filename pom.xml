@@ -6,7 +6,7 @@
 
     <groupId>org.notsay</groupId>
     <artifactId>dsy-sm-cipher</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -37,5 +37,13 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <!--OWNER替换为 github的用户名或你所属组织的名称；REPOSITORY替换为项目名称-->
+            <url>https://maven.pkg.github.com/notsayyu/dsy-sm-cipher</url>
+        </repository>
+    </distributionManagement>
 
 </project>

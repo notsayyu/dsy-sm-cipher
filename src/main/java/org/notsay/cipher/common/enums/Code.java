@@ -19,6 +19,9 @@ public enum Code {
 
     SM4_GEN_KEY_ERROR(1003, "生成SM4秘钥失败"),
 
+    SM3_PROTECT_ERROR(2001, "SM3签名失败"),
+
+    SM3_VERIFY_ERROR(2002, "SM3验签失败"),
 
     ;
 

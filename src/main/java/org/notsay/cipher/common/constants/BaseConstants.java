@@ -9,7 +9,7 @@ public class BaseConstants {
     /**
      * sm4加密编码方式
      */
-    public static final String SM4_ENCODING = "UTF-8";
+    public static final String ENCODING = "UTF-8";
 
     /**
      * sm4加密算法名称

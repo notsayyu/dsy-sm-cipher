@@ -20,8 +20,8 @@ import static org.notsay.cipher.common.constants.BaseConstants.*;
  * @author: dsy
  * @date: 2022/3/29 15:35
  */
-public class Sm4Util {
-    private static final Logger log = Logger.getLogger(Sm4Util.class.getName());
+public class Sm4Utils {
+    private static final Logger log = Logger.getLogger(Sm4Utils.class.getName());
 
     static {
         Security.addProvider(new BouncyCastleProvider());
@@ -59,7 +59,7 @@ public class Sm4Util {
             // 16进制字符串-->byte[]
             byte[] keyData = SelfByteUtils.hexToByte(secretKey);
             // String-->byte[]
-            byte[] srcData = param.getBytes(SM4_ENCODING);
+            byte[] srcData = param.getBytes(ENCODING);
             // 加密后的数组
             byte[] cipherArray = encrypt_Cbc_Padding(keyData, srcData);
             // byte[]-->hexString
@@ -77,7 +77,7 @@ public class Sm4Util {
      *
      * @explain 解密模式：采用CBC
      */
-    public static String uncoverMsg(String secretKey, String param) throws Exception {
+    public static String uncoverMsg(String secretKey, String param) {
         try {
             param = param == null ? "" : param;
             // 用于接收解密后的字符串
@@ -92,7 +92,7 @@ public class Sm4Util {
             Arrays.fill(resultData, (byte) 0);
 
             // byte[]-->String
-            result = new String(srcData, SM4_ENCODING);
+            result = new String(srcData, ENCODING);
             return result;
         } catch (Exception e) {
             log.info(e.getMessage());
@@ -139,10 +139,10 @@ public class Sm4Util {
         return cipher.doFinal(cipherText);
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         String key = generateKsy();
         System.out.println(key);
-        String secretText = protectMsg(key, "趣链科技牛");
+        String secretText = protectMsg(key, "汤上塔，塔骨汤，汤烫塔");
         System.out.println(secretText);
         System.out.println(uncoverMsg(key, secretText));
 
