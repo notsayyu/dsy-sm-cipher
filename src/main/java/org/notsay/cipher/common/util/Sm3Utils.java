@@ -18,7 +18,7 @@ import static org.notsay.cipher.common.constants.BaseConstants.ENCODING;
  * @date: 2022/3/29 20:40
  */
 public class Sm3Utils {
-    private static final Logger log = Logger.getLogger(Sm4Utils.class.getName());
+    private static final Logger log = Logger.getLogger(Sm3Utils.class.getName());
 
     static {
         Security.addProvider(new BouncyCastleProvider());
