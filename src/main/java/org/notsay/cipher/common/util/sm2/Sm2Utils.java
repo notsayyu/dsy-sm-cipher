@@ -126,24 +126,12 @@ public class Sm2Utils {
             BigInteger privateKey = ecpriv.getD();
             ECPoint publicKey = ecpub.getQ();
 
-            log.info("公钥: " + SelfByteUtils.byteToHex(publicKey.getEncoded()));
-            log.info("私钥: " + SelfByteUtils.byteToHex(privateKey.toByteArray()));
+            log.info("publicKey: " + SelfByteUtils.byteToHex(publicKey.getEncoded()));
+            log.info("privateKey: " + SelfByteUtils.byteToHex(privateKey.toByteArray()));
         } catch (Exception e) {
             log.info(e.getMessage());
             throw new CipherBusinessException(Code.SM2_GEN_KEY_ERROR);
         }
-
-    }
-
-    public static void main(String[] args) {
-//        generateKeyPair();
-        String publicKey = "0411691414ba490edffae65a5ddb3b448f79a38c81cc9625e8ac83bf038a8ce2e3a6174ccc37b6a8051deeb20862142041d4b1c76dace46c84cc368c0fbb7b73c6";
-        String privateKey = "009f4aaffc8a8f6151c8f7fd115a91bb4d1105bdf2a4cac1805af3f49c32d11695";
-        String data = "汤上塔，塔骨汤，汤烫塔";
-        String encryptedData = protectMsg(publicKey, data);
-//        String encryptedData = "0491435d97062e8ee6deed43f2804840eede61d4ff02285e3cb4c25c4d159fa775701bb848c2d8315266ed424b2265baeb07c2bb035c11027387eeaf17512ee45e90049f80363bedbcdf0f6b884031bae1541666b068c4b521a1cda06f062d2f632ea346d1f79ab9afe855d0ef43575f401b670ad2b0ebfe765a57588bc90df045b7";
-        System.out.println(encryptedData);
-        System.out.println(uncoverMsg(privateKey, encryptedData));
 
     }
 

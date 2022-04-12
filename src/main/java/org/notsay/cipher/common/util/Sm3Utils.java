@@ -78,12 +78,5 @@ public class Sm3Utils {
         digest.doFinal(hash, 0);
         return hash;
     }
-
-    public static void main(String[] args) {
-        String secretText = encrypt("汤上塔，塔骨汤，汤烫塔");
-        System.out.println(secretText);
-        System.out.println(verify("汤上塔，塔骨汤，汤烫塔", secretText));
-        System.out.println(verify("汤上塔，塔骨汤，汤烫塔2", secretText));
-    }
-
+    
 }

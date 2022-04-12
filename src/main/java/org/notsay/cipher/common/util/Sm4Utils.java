@@ -139,12 +139,4 @@ public class Sm4Utils {
         return cipher.doFinal(cipherText);
     }
 
-    public static void main(String[] args) {
-        String key = generateKsy();
-        System.out.println(key);
-        String secretText = protectMsg(key, "汤上塔，塔骨汤，汤烫塔");
-        System.out.println(secretText);
-        System.out.println(uncoverMsg(key, secretText));
-
-    }
 }
