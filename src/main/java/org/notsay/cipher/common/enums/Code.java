@@ -23,6 +23,12 @@ public enum Code {
 
     SM3_VERIFY_ERROR(2002, "SM3验签失败"),
 
+    SM2_PROTECT_ERROR(3001, "SM2加密失败"),
+
+    SM2_UNCOVER_ERROR(3002, "SM2解密失败"),
+
+    SM2_GEN_KEY_ERROR(3003, "生成SM2秘钥失败"),
+
     ;
 
     private int code;

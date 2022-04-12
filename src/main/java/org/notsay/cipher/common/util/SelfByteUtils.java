@@ -1,5 +1,7 @@
 package org.notsay.cipher.common.util;
 
+import java.math.BigInteger;
+
 /**
  * @description:
  * @author: dsy
@@ -48,6 +50,33 @@ public class SelfByteUtils {
             }
         }
         return hs.toString();
+    }
+
+    /**
+     * 大数字转换字节流（字节数组）型数据
+     *
+     * @param n
+     * @return
+     */
+    public static byte[] byteConvert32Bytes(BigInteger n) {
+        byte[] tmpd;
+        if (n == null) {
+            return null;
+        }
+
+        if (n.toByteArray().length == 33) {
+            tmpd = new byte[32];
+            System.arraycopy(n.toByteArray(), 1, tmpd, 0, 32);
+        } else if (n.toByteArray().length == 32) {
+            tmpd = n.toByteArray();
+        } else {
+            tmpd = new byte[32];
+            for (int i = 0; i < 32 - n.toByteArray().length; i++) {
+                tmpd[i] = 0;
+            }
+            System.arraycopy(n.toByteArray(), 0, tmpd, 32 - n.toByteArray().length, n.toByteArray().length);
+        }
+        return tmpd;
     }
 
     public static byte[] byteMergerAll(byte[]... values) {
